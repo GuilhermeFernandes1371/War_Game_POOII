@@ -23,8 +23,10 @@ public class ControladorDeJogo {
 	
 	public ControladorDeJogo() {
 		this.inicializaJogo();
+	}
+	
+	public void start() {
 		this.preJogo();
-		
 		control.InterfaceGrafica.startPlayerStatus();
 		
 		// INICIA loop de jogo
@@ -83,6 +85,7 @@ public class ControladorDeJogo {
 			ControladorDeJogo.listaJogadores = new ArrayList<>();
 		} catch (Exception ex) {
 			JOptionPane.showMessageDialog(null, ex);
+			System.exit(0);
 		}
 	}
 	

@@ -27,21 +27,21 @@ public class ConnectionFactory {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new Exception("Erro na conex√£o: ", ex);
+            throw new Exception("Erro na conex„o: ", ex);
         }
     }
 
-    public static void closeConnection(Connection con) {
+    public static void closeConnection(Connection con) throws SQLException {
         try {
             if (con != null) {
                 con.close();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+            throw ex;
         }
     }
 
-    public static void closeConnection(Connection con, PreparedStatement stmt) {
+    public static void closeConnection(Connection con, PreparedStatement stmt) throws SQLException {
 
         closeConnection(con);
 
@@ -52,11 +52,11 @@ public class ConnectionFactory {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        	throw ex;
         }
     }
 
-    public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet rs) {
+    public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet rs) throws SQLException {
 
         closeConnection(con, stmt);
 
@@ -67,7 +67,7 @@ public class ConnectionFactory {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null, ex);
+        	throw ex;
         }
     }
 
