@@ -4,13 +4,17 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-import model.master.Jogador;
-import model.mundo.Territorio;
+import model.bean.master.Jogador;
+import model.bean.mundo.Territorio;
+
 import javax.swing.JLabel;
+
 import java.awt.BorderLayout;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;

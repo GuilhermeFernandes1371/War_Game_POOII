@@ -1,8 +1,8 @@
 package control;
 
-import model.master.Jogador;
-import model.militares.Militar;
-import model.mundo.Territorio;
+import model.bean.master.Jogador;
+import model.bean.militares.Militar;
+import model.bean.mundo.Territorio;
 
 import java.util.ArrayList;
 import java.util.Collections;

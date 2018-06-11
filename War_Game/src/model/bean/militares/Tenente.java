@@ -1,6 +1,6 @@
-package model.militares;
+package model.bean.militares;
 
-import model.master.Sorteio;
+import model.bean.master.Sorteio;
 
 public class Tenente extends Militar {
 	

@@ -12,8 +12,10 @@ import java.util.List;
 import javax.swing.SwingConstants;
 
 import control.ControladorDeAtaque;
-import model.militares.Militar;
+import model.bean.militares.Militar;
+
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

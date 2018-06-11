@@ -4,8 +4,8 @@
 package control;
 
 import static org.junit.Assert.*;
-import model.master.Jogador;
-import model.master.Objetivo;
+import model.bean.master.Jogador;
+import model.bean.master.Objetivo;
 
 import org.junit.Test;
 

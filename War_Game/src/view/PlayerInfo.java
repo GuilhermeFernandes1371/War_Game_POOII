@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import model.master.Jogador;
-import model.mundo.Territorio;
+import model.bean.master.Jogador;
+import model.bean.mundo.Territorio;
 
 public class PlayerInfo {
 

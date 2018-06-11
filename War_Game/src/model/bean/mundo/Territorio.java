@@ -1,10 +1,10 @@
-package model.mundo;
+package model.bean.mundo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.master.Jogador;
-import model.militares.Militar;
+import model.bean.master.Jogador;
+import model.bean.militares.Militar;
 
 public class Territorio {
 	private String nome;

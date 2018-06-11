@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import model.master.Jogador;
-import model.master.Objetivo;
+import model.bean.master.Jogador;
+import model.bean.master.Objetivo;
 
 public class ControladorEscolherJogadores {
 

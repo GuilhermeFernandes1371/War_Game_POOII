@@ -4,13 +4,17 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
-import model.master.Jogador;
-import model.militares.Militar;
+import model.bean.master.Jogador;
+import model.bean.militares.Militar;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 

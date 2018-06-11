@@ -3,8 +3,9 @@ package control;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.master.Jogador;
-import model.mundo.Continente;
+import model.bean.master.Jogador;
+import model.bean.mundo.Continente;
+
 import java.awt.Color;
 
 public class ControladorDeObjetivo {

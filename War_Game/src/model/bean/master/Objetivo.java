@@ -1,4 +1,4 @@
-package model.master;
+package model.bean.master;
 
 import java.util.List;
 

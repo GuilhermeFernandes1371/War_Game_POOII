@@ -1,4 +1,4 @@
-package model.militares;
+package model.bean.militares;
 
 public abstract class Militar {
 	

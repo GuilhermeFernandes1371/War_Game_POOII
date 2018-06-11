@@ -1,13 +1,14 @@
-package model.master;
+package model.bean.master;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.militares.Militar;
-import model.mundo.Territorio;
+import model.bean.militares.Militar;
+import model.bean.mundo.Territorio;
 
 public class Jogador {
+	private int id;                                    // Usado para localizar no BDA
 	private String nome;                               // Nome do Jogador
 	private Color cor;                                 // Cor do exercito
 	private Color corComplementar;                     // Cor que complementa a cor do exercito
@@ -18,6 +19,7 @@ public class Jogador {
 	private List<Territorio> listaTerritorios;         // Lista de territorios que o jogador possui
 	
 	public Jogador (String nome , Color cor , Objetivo objetivo) {
+		this.setId(0);
 		this.listaMilitaresSemTerritorio = new ArrayList<>();
 		this.listaTerritorios = new ArrayList<>();
 		this.setNome(nome);
@@ -115,7 +117,13 @@ public class Jogador {
 		}
 		return Color.PINK; // ERRO ZUEIRO
 	}
-	
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 }

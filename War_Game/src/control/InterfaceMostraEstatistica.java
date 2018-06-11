@@ -2,9 +2,9 @@ package control;
 
 import java.util.List;
 
-import model.master.Jogador;
-import model.militares.Militar;
-import model.mundo.Territorio;
+import model.bean.master.Jogador;
+import model.bean.militares.Militar;
+import model.bean.mundo.Territorio;
 
 public class InterfaceMostraEstatistica {
 	

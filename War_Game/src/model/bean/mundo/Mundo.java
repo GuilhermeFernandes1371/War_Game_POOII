@@ -1,4 +1,4 @@
-package model.mundo;
+package model.bean.mundo;
 
 import java.util.ArrayList;
 import java.util.List;

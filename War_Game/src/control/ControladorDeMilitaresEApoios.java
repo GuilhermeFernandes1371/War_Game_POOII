@@ -2,11 +2,12 @@ package control;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.master.Jogador;
-import model.militares.Militar;
-import model.militares.Soldado;
-import model.mundo.Continente;
-import model.mundo.Territorio;
+
+import model.bean.master.Jogador;
+import model.bean.militares.Militar;
+import model.bean.militares.Soldado;
+import model.bean.mundo.Continente;
+import model.bean.mundo.Territorio;
 
 public class ControladorDeMilitaresEApoios {
 

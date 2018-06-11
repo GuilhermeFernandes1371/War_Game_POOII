@@ -5,9 +5,9 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import model.master.Jogador;
-import model.militares.Militar;
-import model.mundo.Territorio;
+import model.bean.master.Jogador;
+import model.bean.militares.Militar;
+import model.bean.mundo.Territorio;
 
 public class ControladorDeAcoesDoJogador {
 	private Jogador jogador;
@@ -57,7 +57,7 @@ public class ControladorDeAcoesDoJogador {
 		}while(true);
 		
 		// Remove os territorios que sao do propio atacante
-		List<Territorio> territorioVizinhoDoJogador = model.mundo.Territorio.removeDuplicados(territorioOrigem.getListaVizinhos(), this.jogador.getListaTerritorios() , true);
+		List<Territorio> territorioVizinhoDoJogador = model.bean.mundo.Territorio.removeDuplicados(territorioOrigem.getListaVizinhos(), this.jogador.getListaTerritorios() , true);
 		if (territorioVizinhoDoJogador.isEmpty()) {
 			// Caso nao exista vizinhos aliados, ou seja, os vizinhos sao todos dominados pelos inimigos
 			JOptionPane.showMessageDialog(null, "Este territorio nao tem vizinhos remanejaveis, retornado ao menu");
@@ -99,7 +99,7 @@ public class ControladorDeAcoesDoJogador {
 		}while(true);
 		
 		// Remove os territorios que sao do propio atacante
-		List<Territorio> territorioVizinhoSemVizinhosDoPropioJogador = model.mundo.Territorio.removeDuplicados(territorioAtacante.getListaVizinhos(), this.jogador.getListaTerritorios() , false);
+		List<Territorio> territorioVizinhoSemVizinhosDoPropioJogador = model.bean.mundo.Territorio.removeDuplicados(territorioAtacante.getListaVizinhos(), this.jogador.getListaTerritorios() , false);
 		if (territorioVizinhoSemVizinhosDoPropioJogador.isEmpty()) {
 			// Caso nao exista vizinhos atacaveis, ou seja, os vizinhos sao todos dominados pelo propio atacante
 			JOptionPane.showMessageDialog(null, "Este territorio nao tem vizinhos atacaveis, retornado ao menu");

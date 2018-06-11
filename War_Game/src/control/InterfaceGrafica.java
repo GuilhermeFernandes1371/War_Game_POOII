@@ -5,10 +5,10 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import model.master.Jogador;
-import model.master.Objetivo;
-import model.militares.Militar;
-import model.mundo.Territorio;
+import model.bean.master.Jogador;
+import model.bean.master.Objetivo;
+import model.bean.militares.Militar;
+import model.bean.mundo.Territorio;
 import view.AcoesDoJogador;
 import view.EscolherJogador;
 import view.PlayerInfo;
@@ -154,7 +154,7 @@ public class InterfaceGrafica {
 				break;
 			}
 		}
-		Objetivo objetivo = model.master.Sorteio.sorteiaObjetivo(listaObjetivo, listaObjetivoEscolhido);
+		Objetivo objetivo = model.bean.master.Sorteio.sorteiaObjetivo(listaObjetivo, listaObjetivoEscolhido);
 		Jogador jogador = new Jogador(nome, cor, objetivo);
 		return jogador;
 	}

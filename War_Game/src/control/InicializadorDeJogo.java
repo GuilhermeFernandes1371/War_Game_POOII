@@ -3,17 +3,17 @@ package control;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.master.Jogador;
-import model.master.Objetivo;
-import model.master.Sorteio;
-import model.militares.Cabo;
-import model.militares.Militar;
-import model.militares.Sargento;
-import model.militares.Soldado;
-import model.militares.Tenente;
-import model.mundo.Continente;
-import model.mundo.Mundo;
-import model.mundo.Territorio;
+import model.bean.master.Jogador;
+import model.bean.master.Objetivo;
+import model.bean.master.Sorteio;
+import model.bean.militares.Cabo;
+import model.bean.militares.Militar;
+import model.bean.militares.Sargento;
+import model.bean.militares.Soldado;
+import model.bean.militares.Tenente;
+import model.bean.mundo.Continente;
+import model.bean.mundo.Mundo;
+import model.bean.mundo.Territorio;
 
 public class InicializadorDeJogo {
 	

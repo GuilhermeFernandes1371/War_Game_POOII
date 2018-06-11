@@ -2,15 +2,20 @@ package view;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 
-import model.master.Jogador;
+import model.bean.master.Jogador;
 
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JPanel;
+
 import java.awt.GridLayout;
 
 public class AcoesDoJogador {

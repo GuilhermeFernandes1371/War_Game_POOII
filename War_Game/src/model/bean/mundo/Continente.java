@@ -1,10 +1,10 @@
-package model.mundo;
+package model.bean.mundo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import control.ControladorDeJogo;
-import model.militares.Militar;
+import model.bean.militares.Militar;
 
 public class Continente {
 	
