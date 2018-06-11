@@ -7,7 +7,7 @@ public class Soldado extends Militar {
 	public static final int pontos = 0; // Valor de força adicional da unidade
 	
 	public Soldado() {
-		
+		this.id = 0;
 	}
 	
 	public int valorAtaque () {

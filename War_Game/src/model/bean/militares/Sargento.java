@@ -7,7 +7,7 @@ public class Sargento extends Militar {
 	public static final int pontos = 2; // Valor de força adicional da unidade
 	
 	public Sargento() {
-		
+		this.id = 0;
 	}
 	
 	public int valorAtaque () {

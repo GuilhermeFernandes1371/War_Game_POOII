@@ -7,12 +7,14 @@ import model.bean.master.Jogador;
 import model.bean.militares.Militar;
 
 public class Territorio {
+	private int id;
 	private String nome;
 	private Continente continente;
 	private List<Territorio> listaVizinhos = new ArrayList<>();
 	private List<Militar> listaMilitares = new ArrayList<>();
 	
 	public Territorio(String nome , Continente continente) {
+		this.setId(0);
 		this.setContinente(continente);
 		this.setNome(nome);
 	}
@@ -115,6 +117,14 @@ public class Territorio {
 	
 	public String toString() {
 		return this.nome;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

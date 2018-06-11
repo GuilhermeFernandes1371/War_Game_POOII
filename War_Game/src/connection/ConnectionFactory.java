@@ -22,12 +22,12 @@ public class ConnectionFactory {
     private static final String PASS = "";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
 
-    public static Connection getConnection() throws RuntimeException {
+    public static Connection getConnection() throws Exception {
         try {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new RuntimeException("Erro na conexão: ", ex);
+            throw new Exception("Erro na conexão: ", ex);
         }
     }
 

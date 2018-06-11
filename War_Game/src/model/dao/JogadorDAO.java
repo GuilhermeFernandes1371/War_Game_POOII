@@ -1,7 +1,7 @@
 package model.dao;
 
 import connection.ConnectionFactory;
-import control.InicializadorDeJogo;
+import control.ControladorDeJogo;
 
 import java.awt.Color;
 import java.sql.Connection;
@@ -17,43 +17,59 @@ import model.bean.master.Objetivo;
 public class JogadorDAO {
 	private Connection con = null;
 
-	public JogadorDAO() {
+	public JogadorDAO() throws Exception{
 		this.con = ConnectionFactory.getConnection();
 	}
 	
-	private int colorToIdCor(Color cor) {
+	private int colorToIdCor(Color cor) throws Exception {
 		if (cor.equals(Color.WHITE)) {
 			return 1;
-		}
-		else if (cor.equals(Color.BLACK)) {
+		} else if (cor.equals(Color.BLACK)) {
 			return 2;
-		}
-		else if (cor.equals(Color.YELLOW)) {
+		} else if (cor.equals(Color.YELLOW)) {
 			return 3;
-		}
-		else if (cor.equals(Color.BLUE)) {
+		} else if (cor.equals(Color.BLUE)) {
 			return 4;
 		}
-		return 0;
+		
+		throw new Exception("ERRO EM JogadorDAO:colorToIdCor - Cor nao encontrada");
 	}
 	
-	private Color idCorToColor(int idCor) {
+	private Color idCorToColor(int idCor) throws Exception {
 		if (idCor == 1) {
 			return Color.WHITE;
-		}
-		else if (idCor == 2) {
+		} else if (idCor == 2) {
 			return Color.BLACK;
-		}
-		else if (idCor == 3) {
+		} else if (idCor == 3) {
 			return Color.YELLOW;
-		}
-		else if (idCor == 4) {
+		} else if (idCor == 4) {
 			return Color.BLUE;
 		}
-		return null;
+		
+		throw new Exception("ERRO EM JogadorDAO:idCorToColor - idCor nao encontrado");
+	}
+	
+	public int maxId() throws SQLException , Exception {
+		PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "SELECT MAX(jogador.id) as lastId FROM jogador";
+
+        try {
+            stmt = con.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getInt("lastId");
+            }
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        throw new Exception("Erro em JogadorDAO:maxId - Erro em MaxId");
 	}
 
-	public void createJogador(int gameId, Jogador jogador) throws SQLException {
+	public void createJogador(int gameId, Jogador jogador) throws SQLException , Exception {
 
 		PreparedStatement state = null;
 		String sql = "CREATE INTO jogador ( nome , cor , objetivoId , jogo_id ) VALUES (?,?,?,?)";
@@ -70,7 +86,7 @@ public class JogadorDAO {
 		}
 	}
 
-	public void updateJogador(int gameId, Jogador jogador) throws SQLException {
+	public void updateJogador(int gameId, Jogador jogador) throws SQLException , Exception {
 
 		PreparedStatement state = null;
 		String sql = "REPLACE INTO jogador (id , nome , cor , objetivoId , jogo_id ) VALUES (?,?,?,?,?)";
@@ -88,7 +104,7 @@ public class JogadorDAO {
 		}
 	}
 
-	public List<Jogador> findAll(int gameId) throws SQLException {
+	public List<Jogador> findAll(int gameId) throws SQLException , Exception {
 		PreparedStatement stmt = null;
         ResultSet rs = null;
         String sql = "SELECT * FROM jogador WHERE jogador.gameId = ?";
@@ -101,7 +117,7 @@ public class JogadorDAO {
             rs = stmt.executeQuery();
             
             while (rs.next()) {
-                Jogador jogador = new Jogador(rs.getString("nome") , this.idCorToColor(rs.getInt("cor")) , Objetivo.procuraObjetivoPeloId(rs.getInt("objetivoId") , InicializadorDeJogo.inicializaObjetivo()));
+                Jogador jogador = new Jogador(rs.getString("nome") , this.idCorToColor(rs.getInt("cor")) , Objetivo.procuraObjetivoPeloId(rs.getInt("objetivoId") , ControladorDeJogo.listaObjetivo));
                 jogador.setId(rs.getInt("id"));
 
                 lista.add(jogador);

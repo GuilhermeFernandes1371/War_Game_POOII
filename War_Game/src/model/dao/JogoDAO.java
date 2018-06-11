@@ -12,26 +12,47 @@ import java.sql.SQLException;
 public class JogoDAO {
 	private Connection con = null;
     
-    public JogoDAO(){
+    public JogoDAO() throws Exception{
         this.con = ConnectionFactory.getConnection();
     }
-    public void createGame(int gameId , ControladorDeJogo jogo) throws SQLException{
+    
+    public int maxId() throws SQLException , Exception {
+		PreparedStatement stmt = null;
+        ResultSet rs = null;
+        String sql = "SELECT MAX(jogo.id) as lastId FROM jogo";
+
+        try {
+            stmt = con.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            
+            if (rs.next()) {
+                return rs.getInt("lastId");
+            }
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return 0;
+	}
+    
+    public void createGame(int gameId , int quantidadeJogadores , int rodada) throws SQLException{
         
         PreparedStatement state = null;
-        String sql = "REPLACE INTO jogo (id ,  quantidadeJogadores , rodada) VALUES (?,?,?)";
+        String sql = "REPLACE INTO jogo (id , quantidadeJogadores , rodada) VALUES (?,?,?)";
         
         try {
             state = con.prepareStatement(sql);
             state.setInt(1, gameId);
-            state.setInt(2, jogo.quantidadeJogadores);
-            state.setInt(3, jogo.rodada);
+            state.setInt(2, quantidadeJogadores);
+            state.setInt(3, rodada);
             state.executeUpdate();
         }finally{
             ConnectionFactory.closeConnection(con, state);
         } 
     }
     
-    public ControladorDeJogo loadGame(int gameId , ControladorDeJogo jogo) throws SQLException {
+    public void loadGame(int gameId) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String sql = "SELECT quantidadeJogadores , rodada FROM jogo WHERE jogo.id = gameId";
@@ -40,14 +61,11 @@ public class JogoDAO {
             stmt = con.prepareStatement(sql);
             rs = stmt.executeQuery();
             if (rs.next()) {
-                jogo.quantidadeJogadores = rs.getInt("quantidadeJogadores");
-                jogo.rodada = rs.getInt("rodada");
-                return jogo;
+                ControladorDeJogo.quantidadeJogadores = rs.getInt("quantidadeJogadores");
+                ControladorDeJogo.rodada              = rs.getInt("rodada");
             }
         }finally {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
-        
-        return null;
     }
 }

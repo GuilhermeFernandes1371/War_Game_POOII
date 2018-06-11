@@ -8,10 +8,12 @@ import javax.swing.JOptionPane;
 import model.bean.master.Jogador;
 import model.bean.master.Objetivo;
 import model.bean.mundo.Mundo;
+import model.dao.JogoDAO;
 import view.PlayerInfo;
 
 public class ControladorDeJogo {
 	
+	public static int id;
 	public static int rodada;
 	public static int quantidadeJogadores;
 	public static List<Jogador> listaJogadores;
@@ -71,10 +73,17 @@ public class ControladorDeJogo {
 	}
 	
 	private void inicializaJogo() {
-		ControladorDeJogo.listaObjetivo = InicializadorDeJogo.inicializaObjetivo();
-		ControladorDeJogo.rodada = 0;
-		ControladorDeJogo.tabuleiro = InicializadorDeJogo.inicializaMundo();
-		ControladorDeJogo.listaJogadores = new ArrayList<>();
+		try {
+			JogoDAO dao = new JogoDAO();
+			ControladorDeJogo.id = dao.maxId() +1;
+			
+			ControladorDeJogo.listaObjetivo = InicializadorDeJogo.inicializaObjetivo();
+			ControladorDeJogo.rodada = 0;
+			ControladorDeJogo.tabuleiro = InicializadorDeJogo.inicializaMundo();
+			ControladorDeJogo.listaJogadores = new ArrayList<>();
+		} catch (Exception ex) {
+			JOptionPane.showMessageDialog(null, ex);
+		}
 	}
 	
 	private void preJogo() {

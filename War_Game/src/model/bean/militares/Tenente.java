@@ -7,7 +7,7 @@ public class Tenente extends Militar {
 	public static final int pontos = 3; // Valor de força adicional da unidade
 	
 	public Tenente()  {
-		
+		this.id = 0;
 	}
 	
 	public int valorAtaque () {

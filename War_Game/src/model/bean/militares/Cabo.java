@@ -7,7 +7,7 @@ public class Cabo extends Militar{
 	public static final int pontos = 1; // Valor de força adicional da unidade
 	
 	public Cabo () {
-		
+		this.id = 0;
 	}
 	
 	public int valorAtaque () {
