@@ -53,14 +53,14 @@ public class MenuPrincipal extends JFrame {
 				new Thread() {
 					@Override
 					public void run() {
-						
+
 						ControladorDeJogo jogo = new ControladorDeJogo();
 						dispose();
+						jogo.preJogo();
 						jogo.start();
-						
+
 					}
 				}.start();
-
 			}
 		});
 
@@ -74,10 +74,13 @@ public class MenuPrincipal extends JFrame {
 
 		CarregarJogo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				CarregarJogo jogo = new CarregarJogo();
+				new Thread() {
+					@Override
+					public void run() {
+						CarregarJogo jogo = new CarregarJogo();
+					}
+				}.start();
 				dispose();
-
 			}
 		});
 

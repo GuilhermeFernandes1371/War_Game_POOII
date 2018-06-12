@@ -77,7 +77,7 @@ public class MilitarDAO {
 		
 		PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM militar WHERE militar.territorioId = ?";
+        String sql = "SELECT * FROM militar WHERE militar.territorio_id = ?";
 
         List<Militar> lista = new ArrayList<>();
 

@@ -35,6 +35,7 @@ public class SelecionarTerritorio {
 		initialize();
 		preencheComboBox();
 		frame.setVisible(true);
+		frame.setResizable(false);
 	}
 	
 	private void preencheComboBox() {

@@ -107,7 +107,7 @@ public class JogadorDAO {
 	public List<Jogador> findAll(int gameId) throws SQLException , Exception {
 		PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM jogador WHERE jogador.gameId = ?";
+        String sql = "SELECT * FROM jogador WHERE jogador.jogo_id = ?";
 
         List<Jogador> lista = new ArrayList<>();
 

@@ -74,7 +74,7 @@ public class TerritorioDAO {
 	public List<Territorio> findAll(Jogador jogador) throws SQLException {
 		PreparedStatement stmt = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM territorio WHERE territorio.jogadorId = ?";
+        String sql = "SELECT * FROM territorio WHERE territorio.jogador_id = ?";
 
         List<Territorio> lista = new ArrayList<>();
 

@@ -2,8 +2,6 @@ package control;
 
 import java.sql.SQLException;
 
-import javax.swing.JOptionPane;
-
 import model.dao.JogadorDAO;
 import model.dao.JogoDAO;
 import model.dao.MilitarDAO;

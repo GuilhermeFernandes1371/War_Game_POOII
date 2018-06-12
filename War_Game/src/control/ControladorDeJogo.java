@@ -26,7 +26,6 @@ public class ControladorDeJogo {
 	}
 	
 	public void start() {
-		this.preJogo();
 		control.InterfaceGrafica.startPlayerStatus();
 		
 		// INICIA loop de jogo
@@ -96,7 +95,7 @@ public class ControladorDeJogo {
 		}
 	}
 	
-	private void preJogo() {
+	public void preJogo() {
 		ControladorEscolherJogadores interfaceEscolherJogadores = new ControladorEscolherJogadores(ControladorDeJogo.listaObjetivo);
 		ControladorDeJogo.quantidadeJogadores = interfaceEscolherJogadores.getQuantidadeDeJogadores();
 		ControladorDeJogo.listaJogadores = interfaceEscolherJogadores.getListaJogadores();

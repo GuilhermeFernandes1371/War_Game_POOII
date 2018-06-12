@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,10 +10,11 @@ import javax.swing.JProgressBar;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
+import control.ControladorDeJogo;
 import control.ControladorDeSalvamento;
 
 import java.awt.Font;
-import java.sql.SQLException;
+import java.awt.Point;
 
 public class SalvandoJogo extends JFrame {
 
@@ -89,7 +89,7 @@ public class SalvandoJogo extends JFrame {
 				System.out.println("Barra atualizado");
 			}
 			
-			JOptionPane.showMessageDialog(null, "Jogo salvo com sucesso !!!");
+			JOptionPane.showMessageDialog(null, "Jogo salvo com sucesso !!! ID(" + ControladorDeJogo.id + ")");
 			this.flag = true;
 			
 		} catch (Exception ex) {

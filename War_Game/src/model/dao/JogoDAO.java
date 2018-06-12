@@ -69,7 +69,7 @@ public class JogoDAO {
 		}
 	}
     
-    public void loadGame(int gameId) throws SQLException {
+    public void loadGame(int gameId , ControladorDeJogo game) throws SQLException {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         String sql = "SELECT quantidadeJogadores , rodada FROM jogo WHERE jogo.id = ?";
@@ -79,8 +79,9 @@ public class JogoDAO {
             stmt.setInt(1, gameId);
             rs = stmt.executeQuery();
             if (rs.next()) {
-                ControladorDeJogo.quantidadeJogadores = rs.getInt("quantidadeJogadores");
-                ControladorDeJogo.rodada              = rs.getInt("rodada");
+            	game.id                  = gameId;
+                game.quantidadeJogadores = rs.getInt("quantidadeJogadores");
+                game.rodada              = rs.getInt("rodada");
             }
         }finally {
             ConnectionFactory.closeConnection(con, stmt, rs);

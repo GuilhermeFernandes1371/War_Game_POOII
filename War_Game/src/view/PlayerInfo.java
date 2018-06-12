@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,7 @@ public class PlayerInfo {
 	public PlayerInfo(List<Jogador> listaJogadores) {
 		this.listaJogadores = listaJogadores;
 		initialize();
+		this.frame.setLocation(new Point(0, 450));
 		this.frame.setVisible(true);
 		this.atualiza(this.listaJogadores);
 	}
@@ -112,6 +114,8 @@ public class PlayerInfo {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Interface Jogadores | Rodada = " + ControladorDeJogo.rodada);
+		frame.setLocationRelativeTo(null);
+		frame.setAlwaysOnTop(true);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(1,1));

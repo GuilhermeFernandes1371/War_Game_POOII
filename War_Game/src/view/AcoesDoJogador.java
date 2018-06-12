@@ -37,6 +37,7 @@ public class AcoesDoJogador {
 		frame.setBounds(100, 100, 578, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(false);
 		
 		JLabel label = new JLabel("Escolha um a\u00E7\u00E3o para fazer");
 		label.setHorizontalAlignment(SwingConstants.CENTER);

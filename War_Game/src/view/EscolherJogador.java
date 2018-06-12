@@ -28,6 +28,7 @@ public class EscolherJogador {
 		initialize();
 		this.inicializaCores();
 		this.frame.setVisible(true);
+		this.frame.setResizable(false);
 		System.out.println("Gerado interface");
 	}
 	

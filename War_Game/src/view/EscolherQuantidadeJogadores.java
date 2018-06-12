@@ -24,6 +24,7 @@ public class EscolherQuantidadeJogadores {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Pre Jogo");
 		
 		JButton button2p = new JButton("2 Players");
 		button2p.setFont(new Font("Tahoma", Font.PLAIN, 22));

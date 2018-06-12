@@ -24,7 +24,7 @@ public class ResultadoAtaque {
 	public JFrame frame;
 	public boolean flag = false;
 	private ControladorDeAtaque control;
-	private static final int sleep = 1000;
+	private static final int sleep = 1500;
 	
 	private JButton button_Continuar;
 	private JLabel label_ResultadoDado3Atacado;

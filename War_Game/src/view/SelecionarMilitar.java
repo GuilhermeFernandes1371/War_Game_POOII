@@ -36,6 +36,7 @@ public class SelecionarMilitar {
 		initialize();
 		this.preencheComboBox();
 		frame.setVisible(true);
+		frame.setResizable(false);
 	}
 	
 	public SelecionarMilitar(List<Militar> listaMilitar , String stringLabel , Jogador jogador , int unidadeSelecionadas) {
