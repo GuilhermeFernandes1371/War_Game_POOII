@@ -13,6 +13,7 @@ import view.AcoesDoJogador;
 import view.EscolherJogador;
 import view.PlayerInfo;
 import view.ResultadoAtaque;
+import view.SalvandoJogo;
 import view.SelecionarMilitar;
 import view.SelecionarTerritorio;
 
@@ -32,6 +33,15 @@ public class InterfaceGrafica {
 			ControladorDeJogo.playerInfo.frame.dispose();
 		}
 		ControladorDeJogo.playerInfo = new PlayerInfo(ControladorDeJogo.listaJogadores);
+	}
+	
+	public static void automaticSave() {
+		SalvandoJogo interfaceGrafica = new SalvandoJogo();
+		while(interfaceGrafica.flag == false) {
+			// Aguarda a interface executar
+			System.out.println("Aguarda o salvamento automatico do jogo");
+		}
+		interfaceGrafica.dispose();
 	}
 	
 	public static void resultadoAtaque(ControladorDeAtaque controle) {

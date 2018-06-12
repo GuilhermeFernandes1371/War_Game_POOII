@@ -91,10 +91,12 @@ public class Jogador {
 	public void removeTerritorios(Territorio territorio) {
 		this.listaTerritorios.remove(territorio);
 	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "Jogador [nome=" + nome + ", objetivo=" + objetivo + ", listaTerritorios=" + listaTerritorios + "]";
+		return "Jogador [id=" + id + ", nome=" + nome + "]";
 	}
 
 	public Color getCorComplementar() {

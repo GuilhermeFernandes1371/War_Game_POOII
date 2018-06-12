@@ -43,7 +43,7 @@ public class TerritorioDAO {
 	public void createTerritorio(Jogador jogador , Territorio territorio) throws SQLException {
 
 		PreparedStatement state = null;
-		String sql = "CREATE INTO territorio ( nome , jogador_id ) VALUES (?,?)";
+		String sql = "INSERT INTO territorio ( nome , jogador_id ) VALUES (?,?)";
 
 		try {
 			state = con.prepareStatement(sql);
@@ -58,13 +58,13 @@ public class TerritorioDAO {
 	public void updateTerritorio(Jogador jogador , Territorio territorio) throws SQLException {
 
 		PreparedStatement state = null;
-		String sql = "CREATE INTO territorio ( id , nome , jogador_id ) VALUES (?,?,?)";
+		String sql = "UPDATE territorio SET nome = ? , jogador_id = ? WHERE id = ?";
 
 		try {
 			state = con.prepareStatement(sql);
-			state.setInt   (1, territorio.getId());
-			state.setString(2, territorio.getNome());
-			state.setInt   (3, jogador.getId());
+			state.setString(1, territorio.getNome());
+			state.setInt   (2, jogador.getId());
+			state.setInt   (3, territorio.getId());
 			state.executeUpdate();
 		} finally {
 			ConnectionFactory.closeConnection(con, state);

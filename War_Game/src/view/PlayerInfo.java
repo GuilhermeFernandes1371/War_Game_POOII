@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import control.ControladorDeJogo;
 import model.bean.master.Jogador;
 import model.bean.mundo.Territorio;
 
@@ -110,7 +111,7 @@ public class PlayerInfo {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setTitle("Interface Jogadores");
+		frame.setTitle("Interface Jogadores | Rodada = " + ControladorDeJogo.rodada);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new GridLayout(1,1));

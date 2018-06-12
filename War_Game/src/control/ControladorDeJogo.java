@@ -35,12 +35,20 @@ public class ControladorDeJogo {
 				break; // fim de jogo
 			}
 			this.realizaJogada();
+			this.automaticSaveGame();
 		}
 		// Fim do jogo
 	}
 	
+	private void automaticSaveGame() {
+		/*
+		 * Salva o jogo automaticamente no final de cada turno
+		 */
+		
+		InterfaceGrafica.automaticSave();
+	}
+	
 	private boolean preRodada() {
-		rodada++;
 		// Verifica se algum jogador conquistou algum continente e caso tenha conquistado, ele posiciona o apoio militar
 		// Verifica quantos militares cada jogador ganha referente ao numero de territorios
 		ControladorDeMilitaresEApoios controladorPosicionarMilitares = new ControladorDeMilitaresEApoios();
@@ -53,7 +61,8 @@ public class ControladorDeJogo {
 			JOptionPane.showMessageDialog(null, "Iniciando turno de " + jogador.getNome());
 			ControladorDeAcoesDoJogador rodadaDoJogador = new ControladorDeAcoesDoJogador(jogador);
 			JOptionPane.showMessageDialog(null, "Finalizando turno de " + jogador.getNome());		
-		}	
+		}
+		this.rodada++;
 	}
 
 	private boolean verificaVencedor() {
@@ -76,9 +85,7 @@ public class ControladorDeJogo {
 	
 	private void inicializaJogo() {
 		try {
-			JogoDAO dao = new JogoDAO();
-			ControladorDeJogo.id = dao.maxId() +1;
-			
+			ControladorDeJogo.id = 0;
 			ControladorDeJogo.listaObjetivo = InicializadorDeJogo.inicializaObjetivo();
 			ControladorDeJogo.rodada = 0;
 			ControladorDeJogo.tabuleiro = InicializadorDeJogo.inicializaMundo();

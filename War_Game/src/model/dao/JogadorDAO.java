@@ -72,7 +72,7 @@ public class JogadorDAO {
 	public void createJogador(int gameId, Jogador jogador) throws SQLException , Exception {
 
 		PreparedStatement state = null;
-		String sql = "CREATE INTO jogador ( nome , cor , objetivoId , jogo_id ) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO jogador ( nome , cor , objetivoId , jogo_id ) VALUES (?,?,?,?)";
 
 		try {
 			state = con.prepareStatement(sql);
@@ -89,15 +89,15 @@ public class JogadorDAO {
 	public void updateJogador(int gameId, Jogador jogador) throws SQLException , Exception {
 
 		PreparedStatement state = null;
-		String sql = "REPLACE INTO jogador (id , nome , cor , objetivoId , jogo_id ) VALUES (?,?,?,?,?)";
+		String sql = "UPDATE jogador SET nome = ? , cor = ? , objetivoId = ? , jogo_id = ? WHERE id = ?";
 
 		try {
 			state = con.prepareStatement(sql);
-			state.setInt   (1, jogador.getId());
-			state.setString(2, jogador.getNome());
-			state.setInt   (3, this.colorToIdCor(jogador.getCor()));
-			state.setInt   (4, jogador.getObjetivo().getId());
-			state.setInt   (5, gameId);
+			state.setString(1, jogador.getNome());
+			state.setInt   (2, this.colorToIdCor(jogador.getCor()));
+			state.setInt   (3, jogador.getObjetivo().getId());
+			state.setInt   (4, gameId);
+			state.setInt   (5, jogador.getId());
 			state.executeUpdate();
 		} finally {
 			ConnectionFactory.closeConnection(con, state);

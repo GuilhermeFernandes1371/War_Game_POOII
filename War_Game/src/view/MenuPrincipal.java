@@ -55,8 +55,8 @@ public class MenuPrincipal extends JFrame {
 					public void run() {
 						
 						ControladorDeJogo jogo = new ControladorDeJogo();
-						jogo.start();
 						dispose();
+						jogo.start();
 						
 					}
 				}.start();

@@ -2,6 +2,8 @@ package control;
 
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import model.dao.JogadorDAO;
 import model.dao.JogoDAO;
 import model.dao.MilitarDAO;
@@ -19,7 +21,6 @@ public class ControladorDeSalvamento {
 		
 		this.numeroTotalDeOperacoes = this.descobreNumeroTotalDeOperacoes();
 		this.numeroAtualDeOperacoes = 1;
-		this.salvaGame();
 	}
 	
 	private int descobreNumeroTotalDeOperacoes() {
@@ -36,16 +37,23 @@ public class ControladorDeSalvamento {
 		return contador;
 	}
 	
-	private void salvaGame() throws SQLException , Exception {
-		JogoDAO dao = new JogoDAO();
-		dao.createGame(ControladorDeJogo.id , ControladorDeJogo.quantidadeJogadores , ControladorDeJogo.rodada);
+	public void salvaGame() throws SQLException , Exception {
+		if (ControladorDeJogo.id == 0) {
+			JogoDAO dao = new JogoDAO();
+			dao.createGame(ControladorDeJogo.quantidadeJogadores , ControladorDeJogo.rodada);
+			
+			JogoDAO dao2 = new JogoDAO();
+			ControladorDeJogo.id = dao2.maxId();
+		}else{
+			JogoDAO dao = new JogoDAO();
+			dao.updateGame(ControladorDeJogo.id , ControladorDeJogo.quantidadeJogadores , ControladorDeJogo.rodada);
+		}
 		numeroAtualDeOperacoes++;
 		
 		this.salvaJogadores();
 	}
 	
 	private void salvaJogadores() throws SQLException , Exception {
-		System.out.println("Ver se atualizou os IDs do jogador: ANTES - " + ControladorDeJogo.listaJogadores);
 		for (Jogador jogador : ControladorDeJogo.listaJogadores) {
 			JogadorDAO dao = new JogadorDAO();
 			if (jogador.getId() == 0) {
@@ -60,7 +68,6 @@ public class ControladorDeSalvamento {
 			this.salvaTerritorios(jogador);
 			numeroAtualDeOperacoes++;
 		}
-		System.out.println("Ver se atualizou os IDs do jogador: DEPOIS - " + ControladorDeJogo.listaJogadores);
 	}
 	
 	private void salvaTerritorios(Jogador jogador) throws SQLException , Exception {
@@ -71,6 +78,7 @@ public class ControladorDeSalvamento {
 				
 				TerritorioDAO dao2 = new TerritorioDAO();
 				territorio.setId(dao2.maxId());
+				
 			}else{
 				dao.updateTerritorio(jogador , territorio);
 			}

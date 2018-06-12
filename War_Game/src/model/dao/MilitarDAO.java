@@ -45,7 +45,7 @@ public class MilitarDAO {
 	public void createMilitar(Territorio territorio , Militar militar) throws SQLException {
 
 		PreparedStatement state = null;
-		String sql = "CREATE INTO militar ( tipo , territorio_id ) VALUES (?,?)";
+		String sql = "INSERT INTO militar ( tipo , territorio_id ) VALUES (?,?)";
 
 		try {
 			state = con.prepareStatement(sql);
@@ -60,13 +60,13 @@ public class MilitarDAO {
 	public void updateMilitar(Territorio territorio , Militar militar) throws SQLException {
 
 		PreparedStatement state = null;
-		String sql = "CREATE INTO militar ( id , tipo , territorio_id ) VALUES (?,?,?)";
+		String sql = "UPDATE militar SET tipo = ? , territorio_id = ? WHERE id = ?";
 
 		try {
 			state = con.prepareStatement(sql);
-			state.setInt   (1, militar.getId());
-			state.setString(2, militar.toString());
-			state.setInt   (3, territorio.getId());
+			state.setString(1, militar.toString());
+			state.setInt   (2, territorio.getId());
+			state.setInt   (3, militar.getId());
 			state.executeUpdate();
 		} finally {
 			ConnectionFactory.closeConnection(con, state);
