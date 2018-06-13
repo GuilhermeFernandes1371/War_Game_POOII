@@ -19,7 +19,7 @@ public class ConnectionFactory {
     private static final String PORTA = "3306";
     private static final String URL = "jdbc:mysql://" + IP + ":" + PORTA + "/" + BDA;
     private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String PASS = "root";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
 
     public static Connection getConnection() throws Exception {
