@@ -6,6 +6,7 @@ package control;
 import static org.junit.Assert.*;
 import model.bean.master.Jogador;
 import model.bean.master.Objetivo;
+import model.bean.mundo.Mundo;
 
 import org.junit.Test;
 
@@ -54,16 +55,24 @@ public class InicializadorDeJogoTest {
 	}
 
 	/**
-	 * Test method for {@link control.InicializadorDeJogo#inicializaDivisaoTerritorio(java.util.List, java.util.List)}.
+	 * Test method for {@link control.InicializadorDeJogo#testInicializaMundo(java.util.List, java.util.List)}.
 	 */
+	
 	@Test
-	public void testInicializaDivisaoTerritorio() {
-		fail("Not yet implemented");
+	public void testInicializaContinentes() {
+
+		Mundo mundo = InicializadorDeJogo.inicializaMundo();
+		
+		assertFalse(mundo.getListaContinentes().size() < 6);
+		assertFalse(mundo.getListaContinentes().size() > 6);
+		assertTrue(mundo.getListaContinentes().size() == 6);
+
 	}
 
 	/**
 	 * Test method for {@link control.InicializadorDeJogo#inicializaObjetivo()}.
 	 */
+	
 	@Test
 	public void testInicializaObjetivo() {
 		
