@@ -24,7 +24,7 @@ public class InicializadorDeJogoTest {
 	 */
 	@Test
 	public void testOrdenaJogadoresAleatoriamente() {
-		/* 
+		/** 
 		 * Esta função de teste serve para testar se a função retorna uma lista de jogadores
 		 * com todos os jogadores ainda contido nela.
 		 * Obs1: Para verificar se a função nao esta engolindo jogadores ( Passa 4 jogadores e ela retorna jogadores diferentes )
@@ -66,7 +66,13 @@ public class InicializadorDeJogoTest {
 	 */
 	@Test
 	public void testInicializaObjetivo() {
-		fail("Not yet implemented");
+		
+		List<Objetivo> listaObjetivo = InicializadorDeJogo.inicializaObjetivo();
+		
+		assertFalse(listaObjetivo.size() < 10);
+		assertFalse(listaObjetivo.size() > 10);
+		assertTrue(listaObjetivo.size() == 10);
+		
 	}
 
 }
