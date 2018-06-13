@@ -28,7 +28,7 @@ public class InicializadorDeJogoTest {
 		/** 
 		 * Esta função de teste serve para testar se a função retorna uma lista de jogadores
 		 * com todos os jogadores ainda contido nela.
-		 * Obs1: Para verificar se a função nao esta engolindo jogadores ( Passa 4 jogadores e ela retorna jogadores diferentes )
+		 * Obs1: Para verificar se a função nao esta engolindo jogadores (Passa 4 jogadores e ela retorna jogadores diferentes)
 		 * Obs2: Esta função nao testa se os jogadores foram realmente ordenados aleatoriamente, pois isto é inviavel ja que é 'Aleatorio' o ordenamento
 		 */
 		
@@ -56,6 +56,8 @@ public class InicializadorDeJogoTest {
 
 	/**
 	 * Test method for {@link control.InicializadorDeJogo#testInicializaMundo(java.util.List, java.util.List)}.
+	 * Esse método realiza o teste para verificar se a lista de territórios 
+	 * contém ou não a quantidade determinada de continentes, que é igual a 6.
 	 */
 	
 	@Test
@@ -71,6 +73,9 @@ public class InicializadorDeJogoTest {
 
 	/**
 	 * Test method for {@link control.InicializadorDeJogo#inicializaObjetivo()}.
+	 * Esse método realiza o teste para verificar se a lista de objetivos  
+	 * contém ou não a quantidade determinada de objetivos que foram determinados 
+	 * na classe de nome "Inicializador de Jogo". O total de objetivos são 10.
 	 */
 	
 	@Test
