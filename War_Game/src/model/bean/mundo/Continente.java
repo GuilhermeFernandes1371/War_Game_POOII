@@ -65,7 +65,7 @@ public class Continente {
 	}
 
 	public List<Militar> getApoio() {
-		// Retorna uma copia para nao passar o endereco da memoria
+		/** Retorna uma copia para nao passar o endereco da memoria */
 		
 		List<Militar> apoioCopia = new ArrayList<>();
 		for (Militar militar : this.apoio) {

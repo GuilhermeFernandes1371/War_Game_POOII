@@ -31,10 +31,10 @@ public class Territorio {
 	}
 	
 	public static List<Territorio> removeDuplicados(List<Territorio> listaTerritorio1 , List<Territorio> listaTerritorio2 , boolean inverso) {
-		// Caso inverso == false
-		// Remove da primeira lista, os territorios que são repetidos na segunda lista
-		// Caso inverso == true
-		// Remove da primeira lista, os territorios que não são repetidos na segunda lista
+		/** Caso inverso == false
+			Remove da primeira lista, os territorios que são repetidos na segunda lista
+			Caso inverso == true
+			Remove da primeira lista, os territorios que não são repetidos na segunda lista */
 		
 		List<Territorio> listaTerritorio3 = new ArrayList<>();
 		if (inverso == false) {

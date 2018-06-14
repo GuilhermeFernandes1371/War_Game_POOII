@@ -8,15 +8,17 @@ import model.bean.militares.Militar;
 import model.bean.mundo.Territorio;
 
 public class Jogador {
-	private int id;                                    // Usado para localizar no BDA
-	private String nome;                               // Nome do Jogador
-	private Color cor;                                 // Cor do exercito
-	private Color corComplementar;                     // Cor que complementa a cor do exercito
-	private Objetivo objetivo;                         // Objetivo do Jogador
-	private List<Militar> listaMilitaresSemTerritorio; // Lista de militares que o jogador ganhou,
-	                                                   // mas ainda estao aguardando para serem posicionadas
-	                                                   // a um territorio no inicio da rodada
-	private List<Territorio> listaTerritorios;         // Lista de territorios que o jogador possui
+	private int id;                                    /** Usado para localizar no BDA */
+	private String nome;                               /** Nome do Jogador */
+	private Color cor;                                 /** Cor do exercito */ 
+	private Color corComplementar;                     /** Cor que complementa a cor do exercito */
+	private Objetivo objetivo;                         /** Objetivo do Jogador */
+	private List<Militar> listaMilitaresSemTerritorio; /** Lista de militares que o jogador ganhou,
+	                                                   	   mas ainda estao aguardando para serem posicionadas
+	                                                   	   a um territorio no inicio da rodada
+	         	   										   Lista de territorios que o jogador possui */
+	
+	private List<Territorio> listaTerritorios;
 	
 	public Jogador (String nome , Color cor , Objetivo objetivo) {
 		this.setId(0);
@@ -29,7 +31,7 @@ public class Jogador {
 	}
 	
 	public boolean verificaPosseTerritorio(Territorio territorio) {
-	/* Passa por parametro um objeto do tipo Territorio
+	/** Passa por parametro um objeto do tipo Territorio
 	 * Retorna um boolean
 	 * True  - Jogador possui o territorio em sua lista de territorios
 	 * False - Jogador nao possui o territorio em sua lista de territorios
@@ -104,8 +106,8 @@ public class Jogador {
 	}
 	
 	private Color descobreCorComplementar() {
-		// retorna a cor complementar a cor do exercito do jogador
-		// Cor complementar seria a cor que "combina" com a cor do exercito
+		/** Retorna a cor complementar a cor do exercito do jogador
+			Cor complementar seria a cor que "combina" com a cor do exército */
 		Color cor = this.getCor();
 		
 		if (cor.equals(Color.BLACK)) {
@@ -117,7 +119,7 @@ public class Jogador {
 		} else if (cor.equals(Color.YELLOW)) {
 			return Color.GREEN;
 		}
-		return Color.PINK; // ERRO ZUEIRO
+		return Color.PINK; 
 	}
 
 	public int getId() {

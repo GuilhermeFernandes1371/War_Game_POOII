@@ -262,7 +262,7 @@ public class InicializadorDeJogo {
 		indiaVizinho.add(russia);
 		india.setListaVizinhos(indiaVizinho);
 
-		// Vizinhos China
+		/** Vizinhos China */
 		List<Territorio> chinaVizinho = new ArrayList<>();
 		chinaVizinho.add(india);
 		chinaVizinho.add(japao);
@@ -270,7 +270,7 @@ public class InicializadorDeJogo {
 		chinaVizinho.add(russia);
 		china.setListaVizinhos(chinaVizinho);
 
-		// Vizinhos Japao
+		/** Vizinhos Japao */
 		List<Territorio> japaoVizinho = new ArrayList<>();
 		japaoVizinho.add(china);
 		japaoVizinho.add(coreiaDoSul);
@@ -278,7 +278,7 @@ public class InicializadorDeJogo {
 		japaoVizinho.add(australia);
 		japao.setListaVizinhos(japaoVizinho);
 
-		// Vizinhos Coreia do Sul
+		/** Vizinhos Coreia do Sul */
 		List<Territorio> coreiaDoSulVizinho = new ArrayList<>();
 		coreiaDoSulVizinho.add(china);
 		coreiaDoSulVizinho.add(india);
@@ -286,7 +286,7 @@ public class InicializadorDeJogo {
 		coreiaDoSulVizinho.add(indonesia);
 		coreiaDoSul.setListaVizinhos(coreiaDoSulVizinho);
 
-		// Vizinhos Russia
+		/** Vizinhos Russia */
 		List<Territorio> russiaVizinho = new ArrayList<>();
 		russiaVizinho.add(china);
 		russiaVizinho.add(india);
@@ -295,56 +295,56 @@ public class InicializadorDeJogo {
 		russiaVizinho.add(canada);
 		russia.setListaVizinhos(russiaVizinho);
 
-		// Oceania
+		/** Oceania
 
-		// Vizinhos Indonesia
+			Vizinhos Indonesia */
 		List<Territorio> indonesiaVizinho = new ArrayList<>();
 		indonesiaVizinho.add(coreiaDoSul);
 		indonesiaVizinho.add(novaZelandia);
 		indonesia.setListaVizinhos(indonesiaVizinho);
 
-		// Vizinhos Nova Zelandia
+		/** Vizinhos Nova Zelandia */
 		List<Territorio> novaZelandiaVizinho = new ArrayList<>();
 		novaZelandiaVizinho.add(coreiaDoSul);
 		novaZelandiaVizinho.add(australia);
 		novaZelandia.setListaVizinhos(novaZelandiaVizinho);
 
-		// Vizinhos Australia
+		/** Vizinhos Australia */
 		List<Territorio> australiaVizinho = new ArrayList<>();
 		australiaVizinho.add(novaZelandia);
 		australiaVizinho.add(japao);
 		australia.setListaVizinhos(australiaVizinho);
 
-		// Europa
+		/** Europa
 
-		// Vizinhos Alemanha
+			Vizinhos Alemanha */
 		List<Territorio> alemanhaVizinho = new ArrayList<>();
 		alemanhaVizinho.add(russia);
 		alemanhaVizinho.add(franca);
 		alemanhaVizinho.add(holanda);
 		alemanha.setListaVizinhos(alemanhaVizinho);
 
-		// Vizinhos Holanda
+		/** Vizinhos Holanda */
 		List<Territorio> holandaVizinho = new ArrayList<>();
 		holandaVizinho.add(alemanha);
 		holandaVizinho.add(franca);
 		holandaVizinho.add(portugal);
 		holanda.setListaVizinhos(holandaVizinho);
 
-		// Vizinhos Franca
+		/** Vizinhos Franca */
 		List<Territorio> francaVizinho = new ArrayList<>();
 		francaVizinho.add(alemanha);
 		francaVizinho.add(inglaterra);
 		francaVizinho.add(holanda);
 		franca.setListaVizinhos(francaVizinho);
 
-		// Vizinhos Inglaterra
+		/** Vizinhos Inglaterra */
 		List<Territorio> inglaterraVizinho = new ArrayList<>();
 		inglaterraVizinho.add(franca);
 		inglaterraVizinho.add(portugal);
 		inglaterra.setListaVizinhos(inglaterraVizinho);
 
-		// Vizinhos Portugal
+		/** Vizinhos Portugal */
 		List<Territorio> portugalVizinho = new ArrayList<>();
 		portugalVizinho.add(inglaterra);
 		portugalVizinho.add(holanda);
@@ -376,13 +376,13 @@ public class InicializadorDeJogo {
 		listaTerritorios.add(japao);
 		listaTerritorios.add(china);
 		
-		// Seta um atributo nos continentes identificando a quantidade de territorios que possui cada continente
+		/** Seta um atributo nos continentes identificando a quantidade de territorios que possui cada continente */
 		for (int i=0 ; i<listaContinentes.size() ; i++) {
 			int quantidade = InicializadorDeJogo.inicializaAtributoQuantidadeTerritoriosNoContinente(listaContinentes.get(i), listaTerritorios);
 			listaContinentes.get(i).setQuantidadeTerritorios(quantidade);
 		}
 		
-		// Povoa com 1 Militar cada territorio
+		/** Povoa com 1 Militar cada territorio */
 		
 				brasil.addMilitar(new Soldado());
 				argentina.addMilitar(new Soldado());
@@ -409,7 +409,7 @@ public class InicializadorDeJogo {
 				japao.addMilitar(new Soldado());
 				china.addMilitar(new Soldado());
 				
-		// Fim povoamento
+		/** Fim povoamento */
 
 		return listaTerritorios;
 	}
