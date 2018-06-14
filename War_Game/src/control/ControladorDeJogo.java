@@ -28,19 +28,19 @@ public class ControladorDeJogo {
 	public void start() {
 		control.InterfaceGrafica.startPlayerStatus();
 		
-		// INICIA loop de jogo
+		/** INICIA loop de jogo */
 		while(true) {
 			if (this.preRodada()) {
-				break; // fim de jogo
+				break; /** fim de jogo */
 			}
 			this.realizaJogada();
 			this.automaticSaveGame();
 		}
-		// Fim do jogo
+		/** Fim do jogo */
 	}
 	
 	private void automaticSaveGame() {
-		/*
+		/**
 		 * Salva o jogo automaticamente no final de cada turno
 		 */
 		
@@ -48,8 +48,8 @@ public class ControladorDeJogo {
 	}
 	
 	private boolean preRodada() {
-		// Verifica se algum jogador conquistou algum continente e caso tenha conquistado, ele posiciona o apoio militar
-		// Verifica quantos militares cada jogador ganha referente ao numero de territorios
+		/** Verifica se algum jogador conquistou algum continente e caso tenha conquistado, ele posiciona o apoio militar
+		 	Verifica quantos militares cada jogador ganha referente ao numero de territorios */
 		ControladorDeMilitaresEApoios controladorPosicionarMilitares = new ControladorDeMilitaresEApoios();
 		
 		return this.verificaVencedor();
@@ -65,21 +65,21 @@ public class ControladorDeJogo {
 	}
 
 	private boolean verificaVencedor() {
-		// Verifica um vencedor
-		// Return true para finalizar o jogo
-		// Return false para continuar o jogo
+		/** Verifica um vencedor
+			Return true para finalizar o jogo
+			Return false para continuar o jogo */
 		for (Jogador jogador : ControladorDeJogo.listaJogadores) {
-			// Verifica conclusão de objetivo de cada jogador
+			/** Verifica conclusão de objetivo de cada jogador */
 			if (ControladorDeObjetivo.verificaObjetivo(jogador)) {
-				// Jogador venceu o jogo
+				/** Jogador venceu o jogo */
 				JOptionPane.showMessageDialog(null, "O jogador " + jogador.getNome() + " venceu o jogo");
 				InterfaceMostraEstatistica fimDeJogo = new InterfaceMostraEstatistica(jogador, this.rodada , this.tabuleiro.getListaTerritorios());
 				
 				return true;
-				// fim de jogo
+				/** fim de jogo */
 			}
 		}
-		return false; // jogo continua
+		return false; /** jogo continua */
 	}
 	
 	private void inicializaJogo() {

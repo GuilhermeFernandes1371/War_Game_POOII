@@ -14,6 +14,8 @@ import java.util.logging.Logger;
  */
 public class ConnectionFactory {
 	
+	/**Informações de conexão com o banco de dados */
+	
     private static final String BDA = "war"; 
     private static final String IP = "127.0.0.1";
     private static final String PORTA = "3306";

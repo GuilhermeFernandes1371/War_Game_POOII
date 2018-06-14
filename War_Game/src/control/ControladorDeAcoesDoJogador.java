@@ -29,16 +29,16 @@ public class ControladorDeAcoesDoJogador {
 			}while(opcao < this.menorOpcaoMenu || opcao > this.maiorOpcaoMenu);
 			
 			if (opcao == 1) {
-				// Atacar
+				/** Atacar */
 				this.organizaAtaque();
 			} else if (opcao == 2) {
-				// Remaneja Tropa
+				/** Remaneja Tropa*/
 				this.organizaRemanejo();
 			} else if (opcao == 3) {
-				// Passa a vez
+				/** Passa a vez */
 			}
-		}while (opcao == 1); // Caso nao ataque, passa a vez
-		// fim do turno
+		}while (opcao == 1); /** Caso não ataque, passa a vez */
+		/** fim do turno */
 	}
 	
 	private void organizaRemanejo() {
@@ -48,23 +48,23 @@ public class ControladorDeAcoesDoJogador {
 		do {
 			territorioOrigem = control.InterfaceGrafica.selecionaTerritorio(this.jogador.getListaTerritorios(), "Selecione um territorio que tenha posse:" , jogador);
 			if (territorioOrigem.getListaMilitares().size() == 1) {
-				// O territorio so pode remanejar se tiver 2 ou mais militares
+				/** O territorio so pode remanejar se tiver 2 ou mais militares */
 				JOptionPane.showMessageDialog(null, "Este territorio tem apenas 1 militar, retornando ao menu");
-				return; // retorna ao menu
+				return; /** retorna ao menu */
 			} else {
 				break;
 			}
 		}while(true);
 		
-		// Remove os territorios que sao do propio atacante
+		/** Remove os territorios que sao do propio atacante */
 		List<Territorio> territorioVizinhoDoJogador = model.bean.mundo.Territorio.removeDuplicados(territorioOrigem.getListaVizinhos(), this.jogador.getListaTerritorios() , true);
 		if (territorioVizinhoDoJogador.isEmpty()) {
-			// Caso nao exista vizinhos aliados, ou seja, os vizinhos sao todos dominados pelos inimigos
+			/** Caso nao exista vizinhos aliados, ou seja, os vizinhos sao todos dominados pelos inimigos */
 			JOptionPane.showMessageDialog(null, "Este territorio nao tem vizinhos remanejaveis, retornado ao menu");
 			return; // retorna ao menu
 		}
 		
-		// Seleciona um vizinho aliado para remanejar
+		/** Seleciona um vizinho aliado para remanejar */
 		territorioDestino = control.InterfaceGrafica.selecionaTerritorio(territorioVizinhoDoJogador , "Selecione um vizinho para remanejar:" , jogador);
 		
 		Militar militarRemanejar = control.InterfaceGrafica.selecionaMilitar(territorioOrigem.getListaMilitares(), "Selecione um militar para remanejar para " + territorioDestino.getNome(), jogador);
@@ -87,26 +87,26 @@ public class ControladorDeAcoesDoJogador {
 		List<Militar> listaMilitaresAtacante = new ArrayList<>();
 		List<Militar> listaMilitaresAtacado  = new ArrayList<>();
 		
-		// Seleciona um territorio para ser o atacante
+		/** Seleciona um territorio para ser o atacante */
 		do {
 			territorioAtacante = control.InterfaceGrafica.selecionaTerritorio(this.jogador.getListaTerritorios(), "Selecione um territorio que tenha posse:" , jogador);
 			if (territorioAtacante.getListaMilitares().size() == 1) {
-				// O territorio so pode atacar se tiver 2 ou mais militares
+				/** O territorio so pode atacar se tiver 2 ou mais militares */
 				JOptionPane.showMessageDialog(null, "Este territorio tem apenas 1 militar, escolha outro");
 			} else {
 				break;
 			}
 		}while(true);
 		
-		// Remove os territorios que sao do propio atacante
+		/** Remove os territorios que sao do propio atacante */
 		List<Territorio> territorioVizinhoSemVizinhosDoPropioJogador = model.bean.mundo.Territorio.removeDuplicados(territorioAtacante.getListaVizinhos(), this.jogador.getListaTerritorios() , false);
 		if (territorioVizinhoSemVizinhosDoPropioJogador.isEmpty()) {
-			// Caso nao exista vizinhos atacaveis, ou seja, os vizinhos sao todos dominados pelo propio atacante
+			/** Caso nao exista vizinhos atacaveis, ou seja, os vizinhos sao todos dominados pelo propio atacante */
 			JOptionPane.showMessageDialog(null, "Este territorio nao tem vizinhos atacaveis, retornado ao menu");
-			return; // retorna ao menu
+			return; /** retorna ao menu */
 		}
 		
-		// Seleciona um vizinho para atacar
+		/** Seleciona um vizinho para atacar */
 		territorioVizinhoAtacado = control.InterfaceGrafica.selecionaTerritorio(territorioVizinhoSemVizinhosDoPropioJogador , "Selecione um vizinho para atacar:" , jogador);
 		
 		for (Militar militar : territorioAtacante.getListaMilitares()) {

@@ -48,8 +48,8 @@ public class ControladorEscolherJogadores {
 	}
 
 	public static boolean verificaCorDuplicado(Color cor , List<Jogador> listaJogadores) {
-		// Retorna TRUE caso a cor passado por parametro ja foi escolhido
-		// Retorna FALSE caso a cor passado por parametro nao tenha sido escolhido
+		/** Retorna TRUE caso a cor passado por parametro ja foi escolhido
+			Retorna FALSE caso a cor passado por parametro nao tenha sido escolhido */
 
 		for (Jogador jogador : listaJogadores) {
 			if (jogador.getCor().equals(cor)) {

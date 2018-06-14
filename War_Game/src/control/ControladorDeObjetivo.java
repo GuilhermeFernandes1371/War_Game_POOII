@@ -15,9 +15,9 @@ public class ControladorDeObjetivo {
 	}
 	
 	public static boolean verificaObjetivo(Jogador jogador) {
-		// Passa por parametro um jogador e ela verificará se seu objetivo foi concluido
-		// Retorna true caso o objetivo dele esteja concluido
-		// Returna false caso o objetivo dele nao esteja concluido
+		/** Passa por parametro um jogador e ela verificará se seu objetivo foi concluido
+		 	Retorna true caso o objetivo dele esteja concluido
+		 	Returna false caso o objetivo dele nao esteja concluido */
 		
 		switch (jogador.getObjetivo().getId()) {
 			case 1:
@@ -47,10 +47,12 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId1(Jogador jogador) {
-		// Conquistar na totalidade a América do Sul e a Europa
-		// Passa um jogador para verificar se ele completou o objetivo de ID 1
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		
+		/** Conquistar na totalidade a América do Sul e a Europa
+			Passa um jogador para verificar se ele completou o objetivo de ID 1
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
+		
 		Continente americaDoSul = Continente.getContinentePeloNome("America do Sul");
 		Continente europa       = Continente.getContinentePeloNome("Europa");
 		if (ControladorDeMilitaresEApoios.jogadorConquistouTerritorio(europa, jogador)   && 
@@ -61,10 +63,10 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId2(Jogador jogador) {
-		// Conquistar a Oceania e mais um continente a sua escolha
-		// Passa um jogador para verificar se ele completou o objetivo de ID 2
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		/** Conquistar a Oceania e mais um continente a sua escolha
+			Passa um jogador para verificar se ele completou o objetivo de ID 2
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
 		
 		List<Continente> listaContinentes = new ArrayList<>();
 		for (Continente continente : ControladorDeJogo.tabuleiro.getListaContinentes()) {
@@ -88,10 +90,11 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId3(Jogador jogador) {
-		// Conquistar 24 territórios
-		// Passa um jogador para verificar se ele completou o objetivo de ID 3
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		
+		/** Conquistar 24 territórios
+			Passa um jogador para verificar se ele completou o objetivo de ID 3
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
 		
 		if (jogador.getListaTerritorios().size() >= 24) {
 			return true;
@@ -100,10 +103,10 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId4(Jogador jogador) {
-		// Conquistar a América do norte e a África (continente)
-		// Passa um jogador para verificar se ele completou o objetivo de ID 4
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		/** Conquistar a América do norte e a África (continente)
+			Passa um jogador para verificar se ele completou o objetivo de ID 4
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
 		
 		Continente americaDoNorte = Continente.getContinentePeloNome("America do Norte");
 		Continente africa = Continente.getContinentePeloNome("Africa");
@@ -116,10 +119,11 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId5(Jogador jogador) {
-		// Conquistar a Ásia e outro continente da sua escolha
-		// Passa um jogador para verificar se ele completou o objetivo de ID 5
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		
+		/** Conquistar a Ásia e outro continente da sua escolha
+			Passa um jogador para verificar se ele completou o objetivo de ID 5
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
 		
 		List<Continente> listaContinentes = new ArrayList<>();
 		for (Continente continente : ControladorDeJogo.tabuleiro.getListaContinentes()) {
@@ -142,10 +146,10 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId6(Jogador jogador) {
-		// Conquistar a Oceania, América do Sul e outro continente da sua escolha
-		// Passa um jogador para verificar se ele completou o objetivo de ID 6
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		/** Conquistar a Oceania, América do Sul e outro continente da sua escolha
+			Passa um jogador para verificar se ele completou o objetivo de ID 6
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
 		
 		List<Continente> listaContinentes = new ArrayList<>();
 		for (Continente continente : ControladorDeJogo.tabuleiro.getListaContinentes()) {
@@ -172,11 +176,12 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId7(Jogador jogador) {
-		// Destruir o exército preto, se for você o exército preto ou se ele não estiver no jogo,
-		// seu objetivo passa a ser conquistar 24 territórios
-		// Passa um jogador para verificar se ele completou o objetivo de ID 7
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		
+		/** Destruir o exército preto, se for você o exército preto ou se ele não estiver no jogo,
+			seu objetivo passa a ser conquistar 24 territórios
+			Passa um jogador para verificar se ele completou o objetivo de ID 7
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
 		
 		List<Jogador> listaJogador = new ArrayList<>();
 		for (Jogador j : ControladorDeJogo.listaJogadores) {
@@ -185,16 +190,16 @@ public class ControladorDeObjetivo {
 		listaJogador.remove(jogador);
 		
 		if (jogador.getCor().equals(Color.BLACK)) {
-			// O jogador de cor preto é o propio jogador
-			// O objetivo passa a ser conquistar 24 territorios
+			/**	O jogador de cor preto é o propio jogador
+				O objetivo passa a ser conquistar 24 territorios */
 			return ControladorDeObjetivo.verificaObjetivoId3(jogador);
 		}
 		
 		for (Jogador j : listaJogador) {
 			if (j.getCor().equals(Color.BLACK)) {
-				// O exercito preto esta no jogo e nao é voce
+				/** O exercito preto esta no jogo e nao é voce */
 				if (j.getListaTerritorios().isEmpty()) {
-					// O jogador de cor preto foi destruido
+					/** O jogador de cor preto foi destruido */
 					return true;
 				}
 			}
@@ -204,11 +209,11 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId8(Jogador jogador) {
-		// Destruir o exército branco, se for você o exército branco ou se ele não estiver no jogo,
-		// seu objetivo passa a ser conquistar 24 territórios
-		// Passa um jogador para verificar se ele completou o objetivo de ID 8
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		/** Destruir o exército branco, se for você o exército branco ou se ele não estiver no jogo,
+			seu objetivo passa a ser conquistar 24 territórios
+			Passa um jogador para verificar se ele completou o objetivo de ID 8
+			Return TRUE para objetivo completado pelo jogador
+			// Return FALSE para objetivo nao completado pelo jogador */
 
 		List<Jogador> listaJogador = new ArrayList<>();
 		for (Jogador j : ControladorDeJogo.listaJogadores) {
@@ -217,16 +222,16 @@ public class ControladorDeObjetivo {
 		listaJogador.remove(jogador);
 		
 		if (jogador.getCor().equals(Color.WHITE)) {
-			// O jogador de cor branco é o propio jogador
-			// O objetivo passa a ser conquistar 24 territorios
+			/** O jogador de cor branco é o propio jogador
+				O objetivo passa a ser conquistar 24 territorios */
 			return ControladorDeObjetivo.verificaObjetivoId3(jogador);
 		}
 		
 		for (Jogador j : listaJogador) {
 			if (j.getCor().equals(Color.WHITE)) {
-				// O exercito branco esta no jogo e nao é voce
+				/** O exercito branco esta no jogo e nao é voce */
 				if (j.getListaTerritorios().isEmpty()) {
-					// O jogador de cor branco foi destruido
+					/** O jogador de cor branco foi destruido */
 					return true;
 				}
 			}
@@ -236,11 +241,11 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId9(Jogador jogador) {
-		// Destruir o exército azul, se for você o exército azul ou se ele não estiver no jogo,
-		// seu objetivo passa a ser conquistar 24 territórios
-		// Passa um jogador para verificar se ele completou o objetivo de ID 9
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		/** Destruir o exército azul, se for você o exército azul ou se ele não estiver no jogo,
+			seu objetivo passa a ser conquistar 24 territórios
+			Passa um jogador para verificar se ele completou o objetivo de ID 9
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
 		
 		List<Jogador> listaJogador = new ArrayList<>();
 		for (Jogador j : ControladorDeJogo.listaJogadores) {
@@ -249,16 +254,16 @@ public class ControladorDeObjetivo {
 		listaJogador.remove(jogador);
 		
 		if (jogador.getCor().equals(Color.BLUE)) {
-			// O jogador de cor azul é o propio jogador
-			// O objetivo passa a ser conquistar 24 territorios
+			/** O jogador de cor azul é o propio jogador
+				O objetivo passa a ser conquistar 24 territorios */
 			return ControladorDeObjetivo.verificaObjetivoId3(jogador);
 		}
 		
 		for (Jogador j : listaJogador) {
 			if (j.getCor().equals(Color.BLUE)) {
-				// O exercito azul esta no jogo e nao é voce
+				/** O exercito azul esta no jogo e nao é voce */
 				if (j.getListaTerritorios().isEmpty()) {
-					// O jogador de cor azul foi destruido
+					/** O jogador de cor azul foi destruido */
 					return true;
 				}
 			}
@@ -268,11 +273,11 @@ public class ControladorDeObjetivo {
 	}
 	
 	private static boolean verificaObjetivoId10(Jogador jogador) {
-		// Destruir o exército amarelo, se for você o exército amarelo ou se ele não estiver no jogo,
-		// seu objetivo passa a ser conquistar 24 territórios
-		// Passa um jogador para verificar se ele completou o objetivo de ID 10
-		// Return TRUE para objetivo completado pelo jogador
-		// Return FALSE para objetivo nao completado pelo jogador
+		/** Destruir o exército amarelo, se for você o exército amarelo ou se ele não estiver no jogo,
+			seu objetivo passa a ser conquistar 24 territórios
+			Passa um jogador para verificar se ele completou o objetivo de ID 10
+			Return TRUE para objetivo completado pelo jogador
+			Return FALSE para objetivo nao completado pelo jogador */
 
 		List<Jogador> listaJogador = new ArrayList<>();
 		for (Jogador j : ControladorDeJogo.listaJogadores) {
@@ -281,8 +286,8 @@ public class ControladorDeObjetivo {
 		listaJogador.remove(jogador);
 		
 		if (jogador.getCor().equals(Color.YELLOW)) {
-			// O jogador de cor amarelo é o propio jogador
-			// O objetivo passa a ser conquistar 24 territorios
+			/** O jogador de cor amarelo é o propio jogador
+				O objetivo passa a ser conquistar 24 territorios */
 			return ControladorDeObjetivo.verificaObjetivoId3(jogador);
 		}
 		

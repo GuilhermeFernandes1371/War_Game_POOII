@@ -47,11 +47,11 @@ public class InicializadorDeJogoTest {
 		
 		List<Jogador> listaOrdenadaAleatoriamente = control.InicializadorDeJogo.ordenaJogadoresAleatoriamente(listaJogadores);
 		
-		assertTrue(listaOrdenadaAleatoriamente.size() == listaJogadores.size()); // Testa se a lista tem o mesmo número de jogadores após passar pela função
-		assertTrue(listaOrdenadaAleatoriamente.contains(guilherme));             // Testa se o jogador GUILHERME ainda esta na lista ordenada aleatoriamente
-		assertTrue(listaOrdenadaAleatoriamente.contains(gabriel));               // Testa se o jogador GABRIEL   ainda esta na lista ordenada aleatoriamente
-		assertTrue(listaOrdenadaAleatoriamente.contains(prea));      			 // Testa se o jogador PREA      ainda esta na lista ordenada aleatoriamente
-		assertTrue(listaOrdenadaAleatoriamente.contains(paje));      			 // Testa se o jogador PAJE      ainda esta na lista ordenada aleatoriamente
+		assertTrue(listaOrdenadaAleatoriamente.size() == listaJogadores.size()); /** Testa se a lista tem o mesmo número de jogadores após passar pela função*/
+		assertTrue(listaOrdenadaAleatoriamente.contains(guilherme));             /** Testa se o jogador GUILHERME ainda esta na lista ordenada aleatoriamente*/
+		assertTrue(listaOrdenadaAleatoriamente.contains(gabriel));               /** Testa se o jogador GABRIEL   ainda esta na lista ordenada aleatoriamente*/
+		assertTrue(listaOrdenadaAleatoriamente.contains(prea));      			 /** Testa se o jogador PREA      ainda esta na lista ordenada aleatoriamente*/
+		assertTrue(listaOrdenadaAleatoriamente.contains(paje));      			 /** Testa se o jogador PAJE      ainda esta na lista ordenada aleatoriamente*/
 	}
 
 	/**

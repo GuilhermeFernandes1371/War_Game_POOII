@@ -34,9 +34,9 @@ public class ControladorDeAtaque {
 	private int atacadoDado2  = 0;
 	private int atacadoDado3  = 0;
 
-	// ResultadoDado == 0 significa que o atacante ganhou naquele dado
-	// ResultadoDado == 1 significa que o atacado ganhou naquele dado
-	// ResultadoDado == -1 significa erro naquele dado
+	/** ResultadoDado == 0 significa que o atacante ganhou naquele dado 
+		ResultadoDado == 1 significa que o atacado ganhou naquele dado 
+		ResultadoDado == -1 significa erro naquele dado */
 	private int resultadoDadoMaior = -1;
 	private int resultadoDadoMedio = -1;
 	private int resultadoDadoMenor = -1;
@@ -54,7 +54,7 @@ public class ControladorDeAtaque {
 	}
 
 	private void iniciaAtaque() {
-		// Lanca dados do Atacante
+		/** Lanca dados do Atacante */
 		if (this.quantidadeDadosAtacante >= 1) {
 			this.atacanteDado1 = this.listaMilitaresAtacante.get(0).valorAtaque();
 		}
@@ -65,7 +65,7 @@ public class ControladorDeAtaque {
 			this.atacanteDado3 = this.listaMilitaresAtacante.get(2).valorAtaque();
 		}
 
-		// Lanca dados do Atacado
+		/** Lanca dados do Atacado */
 		if (this.quantidadeDadosAtacado >= 1) {
 			this.atacadoDado1 = this.listaMilitaresAtacado.get(0).valorAtaque();
 		}
@@ -79,19 +79,19 @@ public class ControladorDeAtaque {
 		this.listaDadoAtacante.add(this.atacanteDado1);
 		this.listaDadoAtacante.add(this.atacanteDado2);
 		this.listaDadoAtacante.add(this.atacanteDado3);
-		Collections.sort(this.listaDadoAtacante, Collections.reverseOrder()); // Ordena a lista inversamente do Atacante
+		Collections.sort(this.listaDadoAtacante, Collections.reverseOrder()); /** Ordena a lista inversamente do Atacante */
 
 		this.listaDadoAtacado.add(this.atacadoDado1);
 		this.listaDadoAtacado.add(this.atacadoDado2);
 		this.listaDadoAtacado.add(this.atacadoDado3);
-		Collections.sort(this.listaDadoAtacado, Collections.reverseOrder()); // Ordena a lista inversamente do Atacado
+		Collections.sort(this.listaDadoAtacado, Collections.reverseOrder()); /** Ordena a lista inversamente do Atacado */
 		
 		this.verificaVencedor();
 	}
 
 	private void verificaVencedor() {
-		// Resultado == 0 significa que o atacante ganhou naquele dado, caso resultado
-		// == 1, o atacado ganhou, caso -1 erro
+		/** Resultado == 0 significa que o atacante ganhou naquele dado, caso resultado 
+		 == 1, o atacado ganhou, caso -1 erro */
 		if (this.quantidadeDadosAtacado >= 1 && this.quantidadeDadosAtacante >= 1) {
 			if (this.listaDadoAtacante.get(0) > this.listaDadoAtacado.get(0)) {
 				this.resultadoDadoMaior = 0;

@@ -18,7 +18,7 @@ import model.bean.mundo.Territorio;
 public class InicializadorDeJogo {
 	
 	public static List<Jogador> ordenaJogadoresAleatoriamente(List<Jogador> listaJogadores) {
-		// O jogo escolhe a ordem dos jogadores aleatoriamente
+		/** O jogo escolhe a ordem dos jogadores aleatoriamente */
 		
 		List<Jogador> listaJogadoresOrdenadosAleatoriamente = new ArrayList<>();
 		List<Jogador> listaJogadoresAux = new ArrayList<>();
@@ -137,13 +137,13 @@ public class InicializadorDeJogo {
 	}
 
 	private static List<Territorio> inicializaTerritorios(List<Continente> listaContinentes) {
-		// Oceania -> 3 Territorios -> Australia , Indonesia , Nova Zelandia
-		// America do Sul -> 3 Territorios -> Brasil , Argentina , Colombia
-		// America do Norte -> 4 Territorios -> EUA , Canada , Mexico , Groelandia
-		// Africa -> 4 Territorios -> Africa do Sul , Egito , Libia , Angola
-		// Europa -> 5 Territorios -> Inglaterra , Portugal , França , Alemanha , Holanda
-		// Asia -> 5 Territorios -> Coreia do Sul , Russia , India , Japao , China
-		// Total -> 24 Territorios
+		/** Oceania -> 3 Territorios -> Australia , Indonesia , Nova Zelandia
+			America do Sul -> 3 Territorios -> Brasil , Argentina , Colombia
+			America do Norte -> 4 Territorios -> EUA , Canada , Mexico , Groelandia
+			Africa -> 4 Territorios -> Africa do Sul , Egito , Libia , Angola
+			Europa -> 5 Territorios -> Inglaterra , Portugal , França , Alemanha , Holanda
+			Asia -> 5 Territorios -> Coreia do Sul , Russia , India , Japao , China
+			Total -> 24 Territorios */
 		
 		Territorio brasil       = new Territorio("Brasil", Continente.getContinentePeloNome("America do Sul",listaContinentes));
 		Territorio argentina    = new Territorio("Argentina", Continente.getContinentePeloNome("America do Sul",listaContinentes));
@@ -170,61 +170,63 @@ public class InicializadorDeJogo {
 		Territorio japao        = new Territorio("Japao", Continente.getContinentePeloNome("Asia",listaContinentes));
 		Territorio china        = new Territorio("China", Continente.getContinentePeloNome("Asia",listaContinentes));
 		
-		// Determinando os vizinhos
+		/** Determinando os vizinhos
 
-		// America do Sul
+			America do Sul
 
-		// Vizinhos Brasil
+			Vizinhos Brasil */
+		
 		List<Territorio> brasilVizinho = new ArrayList<>();
 		brasilVizinho.add(argentina);
 		brasilVizinho.add(colombia);
 		brasilVizinho.add(angola);
 		brasil.setListaVizinhos(brasilVizinho);
 
-		// Vizinhos Argentina
+		/** Vizinhos Argentina */
 		List<Territorio> argentinaVizinho = new ArrayList<>();
 		argentinaVizinho.add(brasil);
 		argentinaVizinho.add(colombia);
 		argentina.setListaVizinhos(argentinaVizinho);
 
-		// Vizinhos Colombia
+		/** Vizinhos Colombia */ 
 		List<Territorio> colombiaVizinho = new ArrayList<>();
 		colombiaVizinho.add(brasil);
 		colombiaVizinho.add(argentina);
 		colombiaVizinho.add(mexico);
 		colombia.setListaVizinhos(colombiaVizinho);
 
-		// America do Norte
+		/** America do Norte
 
-		// Vizinhos Mexico
+			Vizinhos Mexico */
+		
 		List<Territorio> mexicoVizinho = new ArrayList<>();
 		mexicoVizinho.add(colombia);
 		mexicoVizinho.add(EUA);
 		mexicoVizinho.add(canada);
 		mexico.setListaVizinhos(mexicoVizinho);
 
-		// Vizinhos Canada
+		/** Vizinhos Canada */
 		List<Territorio> canadaVizinho = new ArrayList<>();
 		canadaVizinho.add(mexico);
 		canadaVizinho.add(EUA);
 		canadaVizinho.add(russia);
 		canada.setListaVizinhos(canadaVizinho);
 
-		// Vizinhos EUA
+		/** Vizinhos EUA */
 		List<Territorio> EUAVizinho = new ArrayList<>();
 		EUAVizinho.add(mexico);
 		EUAVizinho.add(canada);
 		EUAVizinho.add(groelandia);
 		EUA.setListaVizinhos(EUAVizinho);
 
-		// Vizinhos Groelandia
+		/** Vizinhos Groelandia */
 		List<Territorio> groelandiaVizinho = new ArrayList<>();
 		groelandiaVizinho.add(EUA);
 		groelandia.setListaVizinhos(groelandiaVizinho);
 
-		// Africa
+		/** Africa
 
-		// Vizinhos Angola
+			Vizinhos Angola */
 		List<Territorio> angolaVizinho = new ArrayList<>();
 		angolaVizinho.add(brasil);
 		angolaVizinho.add(egito);
@@ -232,27 +234,27 @@ public class InicializadorDeJogo {
 		angolaVizinho.add(africaDoSul);
 		angola.setListaVizinhos(angolaVizinho);
 
-		// Vizinhos Africa do Sul
+		/** Vizinhos Africa do Sul */
 		List<Territorio> africaDoSulVizinho = new ArrayList<>();
 		africaDoSulVizinho.add(angola);
 		africaDoSul.setListaVizinhos(africaDoSulVizinho);
 
-		// Vizinhos Libia
+		/** Vizinhos Libia */
 		List<Territorio> libiaVizinho = new ArrayList<>();
 		libiaVizinho.add(angola);
 		libiaVizinho.add(egito);
 		libia.setListaVizinhos(libiaVizinho);
 
-		// Vizinhos Egito
+		/** Vizinhos Egito */
 		List<Territorio> egitoVizinho = new ArrayList<>();
 		egitoVizinho.add(angola);
 		egitoVizinho.add(libia);
 		egitoVizinho.add(india);
 		egito.setListaVizinhos(egitoVizinho);
 
-		// Asia
+		/** Asia
 
-		// Vizinhos India
+			Vizinhos India */
 		List<Territorio> indiaVizinho = new ArrayList<>();
 		indiaVizinho.add(egito);
 		indiaVizinho.add(china);
